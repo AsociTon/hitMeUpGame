@@ -1,5 +1,6 @@
 package com.example.hitmeupcheat
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -35,6 +36,11 @@ class MainActivity : AppCompatActivity() {
                 {
                     i.visibility=View.INVISIBLE
                 }
+
+
+                val intent=Intent(applicationContext,welcomeBack::class.java)
+                intent.putExtra("score",score)
+                startActivity(intent)
             }
 
             override fun onTick(millisUntilFinished: Long) {
@@ -44,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         }.start()
     }
+
 
     fun hideImage(){
         runnable = object:Runnable {
